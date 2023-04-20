@@ -1,21 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:roll_dice_app/styled_text.dart';
 
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+
+/*
 class GradiantContainer extends StatelessWidget {
-  const GradiantContainer({super.key});
+  const GradiantContainer({super.key, required this.colors});
+
+  final List<Color> colors;
 
   @override
   Widget build(context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 122, 5, 143),
-          Color.fromARGB(255, 201, 83, 231),
-          Color.fromARGB(255, 61, 7, 115),
-        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+        gradient: LinearGradient(
+          colors: [],
+          begin: startAlignment,
+          end: endAlignment,
+        ),
       ),
-      child: const Center(
-        child: StyledText(),
+      child: Center(
+        child: StyledText('Hello World!  ☠☠'),
+      ),
+    );
+  }
+}
+
+*/
+// this another type of making widget flexible
+
+class GradiantContainer extends StatelessWidget {
+  const GradiantContainer(this.color1, this.color2, {super.key });
+
+  final Color color1;
+  final Color color2;
+
+  @override
+  Widget build(context) {
+    return Container(
+      decoration:  BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color1,color2],
+          begin: startAlignment,
+          end: endAlignment,
+        ),
+      ),
+      child: Center(
+        child: Image.asset('assets/images/dice-1.png',width: 200,),
       ),
     );
   }
