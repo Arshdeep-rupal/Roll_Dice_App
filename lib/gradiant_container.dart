@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roll_dice_app/styled_text.dart';
+import 'package:roll_dice_app/dice_roller.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -31,7 +31,7 @@ class GradiantContainer extends StatelessWidget {
 // this another type of making widget flexible
 
 class GradiantContainer extends StatelessWidget {
-  const GradiantContainer(this.color1, this.color2, {super.key });
+  const GradiantContainer(this.color1, this.color2, {super.key});
 
   final Color color1;
   final Color color2;
@@ -39,15 +39,15 @@ class GradiantContainer extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color1,color2],
+          colors: [color1, color2],
           begin: startAlignment,
           end: endAlignment,
         ),
       ),
-      child: Center(
-        child: Image.asset('assets/images/dice-1.png',width: 200,),
+      child: const Center(
+        child: DiceRoller(),
       ),
     );
   }
